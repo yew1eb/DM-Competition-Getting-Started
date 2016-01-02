@@ -10,6 +10,7 @@ https://www.kaggle.com/c/titanic
 [Kaggle Competition | Titanic Machine Learning from Disaster]
 (http://nbviewer.ipython.org/github/agconti/kaggle-titanic/blob/master/Titanic.ipynb)
 
+https://github.com/agconti/kaggle-titanic
 
 http://www.sotoseattle.com/blog/categories/kaggle/
 
