@@ -28,3 +28,5 @@ https://www.youtube.com/watch?v=0GrciaGYzV0
 
 [Getting Started with R: Titanic Competition in Kaggle]
 (http://armandruiz.com/kaggle/Titanic_Kaggle_Analysis.html)
+
+[A complete guide to getting 0.79903 in Kaggle’s Titanic Competition with Python](https://triangleinequality.wordpress.com/2013/09/05/a-complete-guide-to-getting-0-79903-in-kaggles-titanic-competition-with-python/)
