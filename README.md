@@ -12,3 +12,6 @@
 中没有label这一列，label是需要预测的。  
 **提交结果文件name.csv**  
 列名 [ImageId,Label]，ImageId对应测试集中的每一行。  
+
+## 其他
+* [Kaggle 机器学习竞赛冠军及优胜者的源代码汇总](http://suanfazu.com/t/kaggle-ji-qi-xue-xi-jing-sai-guan-jun-ji-you-sheng-zhe-de-yuan-dai-ma-hui-zong/230)
