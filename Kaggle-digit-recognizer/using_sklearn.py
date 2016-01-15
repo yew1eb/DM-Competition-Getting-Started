@@ -7,7 +7,7 @@
 """
 
 '''
-使用sickit-learn中的分类算法KNN,
+使用sickit-learn中的分类算法预测
 用户使用文档：http://scikit-learn.org/dev/user_guide.html
 '''
 
@@ -72,7 +72,7 @@ def sklearn_MultinomialNB(train_data, train_label, test_data):
 def main():
     train_data, train_label, test_data = load_data()
 
-    sklearn_logistic(train_data, train_label, test_data)
+    #sklearn_logistic(train_data, train_label, test_data)
 
     #sklearn_knn(train_data, train_label, test_data)
 

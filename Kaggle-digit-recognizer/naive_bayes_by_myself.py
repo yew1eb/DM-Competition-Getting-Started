@@ -10,6 +10,13 @@
 '''
 
 import numpy as np
+import time
+
+def csv2vector(file_name):
+    pass
+
+def savefile(labels, file_name):
+    pass
 
 
 def trainNB0(trainMatrix,trainclass):
@@ -45,14 +52,14 @@ def classifyNB(vec2class,pvecdic,pDic):
     return result
 
 def testNB():
-    print "load train data..."
+    print("load train data...")
     trainSet, trainlabel=csv2vector("train.csv",1)
-    print "load test data..."
+    print("load test data...")
     testSet,testlabel = csv2vector("test.csv")
-    print "start train..."
+    print("start train...")
     pvecdic,pDic=trainNB0(trainSet, trainlabel)
     start = time.clock()
-    print "start test..."
+    print("start test...")
     result="ImageId,Label\n"
     for i in range(len(testSet)):
         tmp = classifyNB(testSet[i],pvecdic,pDic)
@@ -60,4 +67,4 @@ def testNB():
         #print tmp
     savefile(result,"result_NB.csv")
     end = time.clock()
-    print "time cost: %f s" % (end - start)
+    print("time cost: %f s" % (end - start))
