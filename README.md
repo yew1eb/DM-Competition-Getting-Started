@@ -1,3 +1,7 @@
+# Data Mining Competition Getting Started
+
+***************
+
 ## Kaggle
 [Kaggle实战(一) | Nanjunxiao](http://nanjunxiao.github.io/2015/07/30/Kaggle%E5%AE%9E%E6%88%98%E4%B8%80/)  
 [Kaggle实战(二) | Nanjunxiao](http://nanjunxiao.github.io/2015/07/31/Kaggle%E5%AE%9E%E6%88%98%E4%BA%8C/)
@@ -6,7 +10,6 @@
 ## Analytics Vidhya
 * [About Practice Problem : Loan Prediction](http://datahack.analyticsvidhya.com/contest/practice-problem-loan-prediction#)
 * [About Practice Problem : BigMart Sales Prediction!](http://datahack.analyticsvidhya.com/contest/practice-problem-bigmart-sales-prediction)
-* [About Practice Problem 1](http://datahack.analyticsvidhya.com/contest/practice-problem-1)
 
 ## DrivenData
 * <http://www.drivendata.org/>
