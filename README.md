@@ -1,6 +1,6 @@
 [Kaggle实战(一) | Nanjunxiao](http://nanjunxiao.github.io/2015/07/30/Kaggle%E5%AE%9E%E6%88%98%E4%B8%80/)  
 [Kaggle实战(二) | Nanjunxiao](http://nanjunxiao.github.io/2015/07/31/Kaggle%E5%AE%9E%E6%88%98%E4%BA%8C/)
-
+[Kaggle Competitions: How and where to begin?](http://www.analyticsvidhya.com/blog/2015/06/start-journey-kaggle/)  
 # 1. Kaggle Digit Recognizer
 此任务是在MNIST（一个带Label的数字像素集合）上训练一个数字分类器，训练集的大小为42000个training example，
 每个example是28*28=784个灰度像素值和一个0~9的label。最后的排名以在测试集上的分类正确率为依据排名。
