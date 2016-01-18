@@ -74,7 +74,6 @@ def using_xgb(train_x, train_y, test_x, test_uid):
     result = pd.DataFrame({"Loan_ID":test_uid, "Loan_Status":pred}, columns=['Loan_ID','Loan_Status'])
     result.to_csv('result/xgb_'+str(time.time())[-4:]+'.csv', index=False)
 
-
 def main():
     train_x, train_y, test_x, test_uid = load_data()
     print("load_data() end!")
