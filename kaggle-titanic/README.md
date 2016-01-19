@@ -30,3 +30,4 @@ https://www.youtube.com/watch?v=0GrciaGYzV0
 (http://armandruiz.com/kaggle/Titanic_Kaggle_Analysis.html)
 
 [A complete guide to getting 0.79903 in Kaggle’s Titanic Competition with Python](https://triangleinequality.wordpress.com/2013/09/05/a-complete-guide-to-getting-0-79903-in-kaggles-titanic-competition-with-python/)
+[机器学习系列(3)_逻辑回归应用之Kaggle泰坦尼克之灾](http://blog.csdn.net/han_xiaoyang/article/details/49797143)  
