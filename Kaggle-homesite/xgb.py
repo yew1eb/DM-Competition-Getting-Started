@@ -60,7 +60,7 @@ for f in train.columns:
 clf = xgb.XGBClassifier(n_estimators=25,
                         nthread=-1,
                         max_depth=8,
-                        learing_rate=0.025,
+                        learing_rate=0.01,
                         silent=True,
                         subsample=0.8,
                         colsample_bytree=0.8)
@@ -70,4 +70,5 @@ xgb_model = clf.fit(train, y, eval_metric="auc")
 preds = clf.predict_proba(test)[:,1]
 result = pd.DataFrame({"QuoteNumber":test_uid,
                        "QuoteConversion_Flag":preds})
-result.to_csv(path+'xgb_benchmark.csv', index=False)
+
+result.to_csv(path+'result_xgb.csv', index=False)
