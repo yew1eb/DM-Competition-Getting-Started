@@ -1,15 +1,11 @@
-#based on
-# https://www.kaggle.com/sushize/homesite-quote-conversion/xgb-stop/log
-# abd
-#https://www.kaggle.com/mpearmain/homesite-quote-conversion/xgboost-benchmark/code
-
 import pandas as pd
 import numpy as np
 import xgboost as xgb
 from sklearn import preprocessing
 from sklearn.cross_validation import train_test_split
 
-seed = 1718
+
+random_seed = 23145
 
 train = pd.read_csv("./input/train.csv")
 test = pd.read_csv("./input/test.csv")
@@ -36,8 +32,8 @@ test['weekday'] = test['Date'].dt.dayofweek
 train = train.drop('Date', axis=1)
 test = test.drop('Date', axis=1)
 
-train = train.fillna(0)
-test = test.fillna(0)
+train = train.fillna(-999)
+test = test.fillna(-999)
 
 features = list(train.columns[1:])  #la colonne 0 est le quote_conversionflag
 print(features)
@@ -51,20 +47,23 @@ for f in train.columns:
         train[f] = lbl.transform(list(train[f].values))
         test[f] = lbl.transform(list(test[f].values))
 
-dtrain = xgb.DMatrix(train[features], train['QuoteConversion_Flag'])
-dtest = xgb.DMatrix(test[features])
 
 
-param =     {
+X_train, X_val, y_train, y_val = train_test_split(train[features], train['QuoteConversion_Flag'], train_size=0.75, random_state=random_seed)
+xgb_train = xgb.DMatrix(X_train, label=y_train)
+xgb_val   = xgb.DMatrix(X_val,   label=y_val)
+xgb_test  = xgb.DMatrix(test[features])
+
+params  =  {
     #1- General Parameters
     'booster' : "gbtree", #booster [default=gbtree]
     'silent': 0 , #silent [default=0]
     #'nthread' : -1 , #nthread [default to maximum number of threads available if not set]
 
     #2A-Parameters for Tree Booster
-    'eta'  :0.023, # eta [default=0.3] range: [0,1]
+    'eta'  :0.02, # eta [default=0.3] range: [0,1]
     #'gamma':0 ,#gamma [default=0] range: [0,鈭瀅
-    'max_depth'           :6, #max_depth [default=6] range: [1,鈭瀅
+    'max_depth'           :8, #max_depth [default=6] range: [1,鈭瀅
     #'min_child_weight':1,  #default=1]range: [0,鈭瀅
     #'max_delta_step':0, #max_delta_step [default=0] range: [0,鈭瀅
     'subsample'           :0.83, #subsample [default=1]range: (0,1]
@@ -82,25 +81,21 @@ param =     {
     'objective': 'binary:logistic',  #objective [ default=reg:linear ]
     #'base_score'=0.5,        #base_score [ default=0.5 ]
     'eval_metric' : 'auc', #eval_metric [ default according to objective ]
-    'seed':seed #seed [ default=0 ]
+    'seed':random_seed #seed [ default=0 ]
 
     }
 
-num_boost_round = 1800
+watchlist = [(xgb_val, 'val'), (xgb_train, 'train')]
 
-bst = xgb.train(
-    params=param,
-    dtrain=dtrain,
-    num_boost_round=num_boost_round
-    #watchlist
-    )
+num_round = 1800
+
+bst = xgb.train(params, xgb_train, num_boost_round=num_round, evals=watchlist)
 
 
 #prediction
-preds= bst.predict(dtest)
-print (preds)
+preds= bst.predict(xgb_test)
 
 #print to CSV
 sample = pd.read_csv('./input/sample_submission.csv')
 sample.QuoteConversion_Flag = preds
-sample.to_csv('xgb_shizepython.csv', index=False)
+sample.to_csv('result_xgb_python.csv', index=False)

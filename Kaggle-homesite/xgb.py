@@ -60,7 +60,7 @@ for f in train.columns:
 clf = xgb.XGBClassifier(n_estimators=25,
                         nthread=-1,
                         max_depth=8,
-                        learing_rate=0.01,
+                        learning_rate=0.01,
                         silent=True,
                         subsample=0.8,
                         colsample_bytree=0.8)
