@@ -51,10 +51,12 @@ def sklearn_random_forest(train_data, train_label, test_data):
     save2csv(test_label, 'sklearn_random_forest.csv')
 
 def sklearn_svm(train_data, train_label, test_data):
-    model = svm.SVC(C=5) #default:C=1.0,kernel = 'rbf'. you can try kernel:‘linear’, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’
+    model = svm.SVC(C=14, kernel='rbf', gamma=0.001, cache_size=200)
+    # svm.SVC(C=6.2, kernel='poly', degree=4, coef0=0.48, cache_size=200)
     model.fit(train_data, train_label.ravel() )
     test_label = model.predict(test_data)
-    save2csv(test_label, 'sklearn_svm_result.csv')
+
+    save2csv(test_label, 'sklearn_svm_rbf_result.csv')
 
 def sklearn_GaussianNB(train_data, train_label, test_data):
     model = GaussianNB()
@@ -78,7 +80,7 @@ def main():
 
     #sklearn_random_forest(train_data, train_label, test_data)
 
-    #sklearn_svm(train_data, train_label, test_data)
+    sklearn_svm(train_data, train_label, test_data)
 
     # naive bayes 0.5~
     #sklearn_GaussianNB(train_data, train_label, test_data)

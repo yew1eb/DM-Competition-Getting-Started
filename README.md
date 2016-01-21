@@ -15,6 +15,8 @@
   借贷预测，二分类问题  
   总11个特征(Gender,Married,Dependents,Education,Self_Employed,ApplicantIncome,CoapplicantIncome,LoanAmount,Loan_Amount_Term,Credit_History,Property_Area)
   ，Loan_ID是用户ID，Loan_Status是需要预测的，特征包含数值类型和分类类型
+* BigMart Sales Prediction! [url](http://datahack.analyticsvidhya.com/contest/practice-problem-bigmart-sales-prediction)
+
 
 ## DrivenData
 * DD-Predict-Blood-Donations [url](http://www.drivendata.org/competitions/2/page/7/) | [dataset](https://archive.ics.uci.edu/ml/datasets/Blood+Transfusion+Service+Center)

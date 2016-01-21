@@ -8,7 +8,6 @@ https://www.kaggle.com/skylord/homesite-quote-conversion/digging-deeper-and-deep
 
 
 https://www.kaggle.com/c/homesite-quote-conversion/forums/t/18225/two-insights-for-0-96852
-https://www.kaggle.com/sushize/homesite-quote-conversion/xgb-stop/run/104408
 https://www.kaggle.com/sushize/homesite-quote-conversion/xgb-stop
 https://github.com/leileishi/kaggle-homesite
 

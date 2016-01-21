@@ -16,7 +16,7 @@ print('Number of test examples {0} '.format(test.shape[0]))
 
 
 cat_vbl = {'Gender','Married','Dependents','Self_Employed','Property_Area'}
-num_vbl = {'ApplicantIncome','CoapplicantIncome','LoanAmount','Loan_Amount_Term','Credit_History'}
+num_vbl = {'LoanAmount','Loan_Amount_Term','Credit_History'}
 
 for var in num_vbl:
     train[var] = train[var].fillna(value = train[var].mean())

@@ -9,3 +9,6 @@
 中没有label这一列，label是需要预测的。  
 **提交结果文件name.csv**  
 列名 [ImageId,Label]，ImageId对应测试集中的每一行。  
+
+
+[TensorFlow softmax regression & deep NN](https://www.kaggle.com/kakauandme/digit-recognizer/tensorflow-softmax-regression-deep-nn/notebook)
