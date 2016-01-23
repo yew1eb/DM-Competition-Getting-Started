@@ -40,8 +40,8 @@ with open(BASE_PATH+'ensemble_benchmark.csv', 'wb') as output_file:
             prediction_counts[int(prediction)] += 1
 
         # the max index is the label that was predicted most frequently
-        averaged_prediction = max(range(len(prediction_counts)),key=prediction_counts.__getitem__)
+        averaged_prediction = max(xrange(len(prediction_counts)),key=prediction_counts.__getitem__)
 
-        print(str(ex_count+1) + ' -- Predictions: ' + ', '.join(current_predictions) + \
-                ' -- Average: ' + str(averaged_prediction))
+        print str(ex_count+1) + ' -- Predictions: ' + ', '.join(current_predictions) + \
+                ' -- Average: ' + str(averaged_prediction)
         w.writerow([ex_count+1, averaged_prediction])

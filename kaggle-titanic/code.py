@@ -56,7 +56,7 @@ predictions[predictions <= .5] = 0
 
 accuracy = sum(predictions[predictions == titanic["Survived"]]) / len(predictions)
 
-print('Accuracy of Linear Regression on the training set is ' + str(accuracy))
+print(('Accuracy of Linear Regression on the training set is ' + str(accuracy)))
 
 # Logistic Regression
 # ===================
@@ -64,7 +64,7 @@ alg = LogisticRegression()
 # Compute the accuracy score for all the cross validation folds.  (much simpler than what we did before!)
 scores = cross_validation.cross_val_score(alg, titanic[predictors], titanic["Survived"], cv=3)
 # Take the mean of the scores (because we have one for each fold)
-print('Accuracy of Logistic Regression on the training set is ' + str(scores.mean()))
+print(('Accuracy of Logistic Regression on the training set is ' + str(scores.mean())))
 
 # Random Forest
 # ===================
@@ -74,7 +74,7 @@ alg = RandomForestClassifier(n_estimators=1000,min_samples_leaf=5, max_features=
 # Compute the accuracy score for all the cross validation folds.  (much simpler than what we did before!)
 scores = cross_validation.cross_val_score(alg, titanic[predictors], titanic["Survived"], cv=3)
 # Take the mean of the scores (because we have one for each fold)
-print('Accuracy of Random Forest on the training set is ' + str(scores.mean()))
+print(('Accuracy of Random Forest on the training set is ' + str(scores.mean())))
 
 # Test Set
 # ========

@@ -25,27 +25,27 @@ def trainNB0(trainMatrix,trainclass):
     pDic={}
     for v in trainclass:
         pDic[v] = pDic.get(v,0)+1
-    for k,v in pDic.items():
+    for k,v in list(pDic.items()):
         pDic[k]=v/float(numpics)#p of every class
     pnumdic={}
     psumdic={}
-    for k in pDic.keys():
+    for k in list(pDic.keys()):
         pnumdic[k]=np.ones(numpix)
     for i in range(numpics):
         pnumdic[trainclass[i]] += trainMatrix[i]
         psumdic[trainclass[i]] = psumdic.get(trainclass[i],2) + sum(trainMatrix[i])
     pvecdic={}
-    for k in pnumdic.keys():
+    for k in list(pnumdic.keys()):
         pvecdic[k]=np.log(pnumdic[k]/float(psumdic[k]))
     return pvecdic,pDic
 
 def classifyNB(vec2class,pvecdic,pDic):
     presult={}
-    for k in pDic.keys():
+    for k in list(pDic.keys()):
         presult[k]=sum(vec2class*pvecdic[k])+np.log(pDic[k])
     tmp=float("-inf")
     result=""
-    for k in presult.keys():
+    for k in list(presult.keys()):
         if presult[k]>tmp:
             tmp= presult[k]
             result=k
@@ -67,4 +67,4 @@ def testNB():
         #print tmp
     savefile(result,"result_NB.csv")
     end = time.clock()
-    print("time cost: %f s" % (end - start))
+    print(("time cost: %f s" % (end - start)))

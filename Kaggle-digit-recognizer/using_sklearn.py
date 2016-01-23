@@ -29,7 +29,7 @@ def load_data():
     return data, label, test
 
 def save2csv(labels, csv_name):
-    np.savetxt('d:/dataset/digits/'+csv_name, np.c_[range(1,len(labels)+1),labels],
+    np.savetxt('d:/dataset/digits/'+csv_name, np.c_[list(range(1,len(labels)+1)),labels],
                delimiter=',', header = 'ImageId,Label', comments = '', fmt='%d')
 
 def sklearn_logistic(train_data, train_label, test_data):

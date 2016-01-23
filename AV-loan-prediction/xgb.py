@@ -67,7 +67,7 @@ def using_xgb(train_x, train_y, test_x, test_uid):
     pred = np.where(scores > 0.5, 'Y','N')
 
 
-    print(pd.value_counts(pred))
+    print((pd.value_counts(pred)))
 
 
     return 0

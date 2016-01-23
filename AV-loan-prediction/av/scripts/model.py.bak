@@ -32,7 +32,7 @@ class BasicModel(Model):
     def predict(self):
         most_prominent_class = np.argmax(self.train_df[self.target_class].value_counts())
         baseline_prediction = [most_prominent_class] * self.test_df.shape[0]
-        baseline_prediction = list(map(inverse_mapping, baseline_prediction))
+        baseline_prediction = map(inverse_mapping, baseline_prediction)
 
         baseline_prediction = np.array(baseline_prediction)
 

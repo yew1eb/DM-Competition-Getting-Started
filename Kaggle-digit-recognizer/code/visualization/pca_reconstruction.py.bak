@@ -26,14 +26,14 @@ def read_data(filname, limit=None):
 
     return (data, labels)
 
-print("Reading train data")
+print "Reading train data"
 train, target = read_data("../data/train.csv")
 
 pca_components = [1, 2, 3, 4, 5, 10, 20, 25, 30, 50, 70, 100]
 pca_fits = []
 
 for comp_size in pca_components:
-    print("Fitting pca with %d components" % comp_size)
+    print "Fitting pca with %d components" % comp_size
     pca_fits.append(decomposition.PCA(n_components=comp_size).fit(train))
 
 figure = plt.figure()

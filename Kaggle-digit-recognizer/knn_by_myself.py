@@ -39,9 +39,9 @@ def test_knn(train_data, train_label, test_data, test_label):
         labels.append(calc_label)
         error = error + (calc_label != test_label[i])
 
-    print('error: ', error)
-    print('error percent: %f' % (float(error) / m))
-    print('time cost: %f s' % (time.clock() - start))
+    print(('error: ', error))
+    print(('error percent: %f' % (float(error) / m)))
+    print(('time cost: %f s' % (time.clock() - start)))
 
 
 def save2csv(labels, csv_name):
@@ -61,7 +61,7 @@ def knn_pred(train_data, train_label, test_data):
         calc_label = classify(test_data[i], train_data, train_label, 3)
         labels.append(calc_label)
     save2csv(labels, 'knn_result.csv')
-    print('time cost: %f s' % (time.clock() - start))
+    print(('time cost: %f s' % (time.clock() - start)))
 
 
 def classify(inx, train_data, train_label, k):
@@ -75,6 +75,6 @@ def classify(inx, train_data, train_label, k):
     for i in range(k):
         label = train_label[sort_dist[i]]
         class_set[label] = class_set.get(label, 0) + 1
-    sorted_class_set = sorted(class_set.items(), key=lambda d: d[1], reverse=True)  # 按字典中的从大到小排序
+    sorted_class_set = sorted(list(class_set.items()), key=lambda d: d[1], reverse=True)  # 按字典中的从大到小排序
     # python2.7 -> python3.5 : itertimes() -> items()
     return sorted_class_set[0][0]

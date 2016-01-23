@@ -8,9 +8,9 @@ from sklearn import preprocessing
 train = pd.read_csv('train.csv')
 test = pd.read_csv('test.csv')
 print ("Starting...")
-print('Number of training examples {0} '.format(train.shape[0]))
-print(train.Loan_Status.value_counts())
-print('Number of test examples {0} '.format(test.shape[0]))
+print(('Number of training examples {0} '.format(train.shape[0])))
+print((train.Loan_Status.value_counts()))
+print(('Number of test examples {0} '.format(test.shape[0])))
 
 #print(train.isnull().sum())
 
@@ -58,7 +58,7 @@ x_test = test[features].values
 # Random Forest
 rf = RandomForestClassifier(n_estimators=1000, n_jobs=-1, oob_score = True, max_features = "auto",random_state=10, min_samples_split=2, min_samples_leaf=2)
 rf.fit(x_train, y_train)
-print('Training accuracy:', rf.oob_score_)
+print(('Training accuracy:', rf.oob_score_))
 
 
 print ("Starting to predict on the dataset")

@@ -18,7 +18,7 @@ with open(path+'train.csv', 'r') as reader:
         train_label.append(data[0])
         train_data.append(data[1:])
 
-print('Loaded ' + str(len(train_label)))
+print(('Loaded ' + str(len(train_label))))
 
 print('Reduction...')
 train_label = numpy.array(train_label)
@@ -38,7 +38,7 @@ with open(path+'test.csv', 'r') as reader:
     for line in reader.readlines():
         pixels = list(map(int, line.rstrip().split(',')))
         test_data.append(pixels)
-print('Loaded ' + str(len(test_data)))
+print(('Loaded ' + str(len(test_data))))
 
 print('Predicting...')
 test_data = numpy.array(test_data)

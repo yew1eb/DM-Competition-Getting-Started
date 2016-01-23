@@ -76,7 +76,7 @@ for dev_index, val_index in kfolds:
     bst = xgb.train( plst,dtrain, num_rounds)
     ypred = bst.predict(dtest,ntree_limit=bst.best_iteration)
     pred_val_y = (pred_val_y + ypred) / 2'''
-    print(np.sqrt(mean_squared_error(val_y, pred_val_y)))
+    print((np.sqrt(mean_squared_error(val_y, pred_val_y))))
 
 print("Building RF1")
 reg = RandomForestRegressor(n_estimators=1000, max_depth=6, min_samples_leaf=1, max_features="auto", n_jobs=-1, random_state=88888)

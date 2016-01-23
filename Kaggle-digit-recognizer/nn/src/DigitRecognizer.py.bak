@@ -49,7 +49,7 @@ def get_features(x):
     angles = np.linspace(0, 1, 8) * PI
     h, _, _ = transform.hough_line(filters.sobel(binary_image), theta=angles)
     h_sum = [
-        [sum(row[start:start+5]) for start in range(0, 75, 5)]
+        [sum(row[start:start+5]) for start in xrange(0, 75, 5)]
         for row in zip(*h)
     ]
     features.extend(np.array(h_sum).reshape(1, -1).tolist()[0])
@@ -66,7 +66,7 @@ def get_features(x):
     return features
 
 def main():
-    print('Loading training set...')
+    print 'Loading training set...'
 
     training_x_raw = []
     training_y_raw = []
@@ -96,8 +96,8 @@ def main():
             if any([samples % 1000 == 0,
                     samples % 100 == 0 and samples < 2000,
                     samples % 10 == 0 and samples < 200]):
-                print(samples, 'samples loaded.', m, 'generated samples.')
-    print('Done.', m, 'total samples.')
+                print samples, 'samples loaded.', m, 'generated samples.'
+    print 'Done.', m, 'total samples.'
 
     x_array = np.array(training_x)
     # normalize the training set
@@ -107,9 +107,9 @@ def main():
     alpha = 0.04
     test_size = m / 4 # 4 fold testing
 
-    print('Training set loaded. Samples:', len(training_x))
-    print('Training network (layers: ' + \
-          ' -> '.join(map(str, layer_sizes)) + ')...')
+    print 'Training set loaded. Samples:', len(training_x)
+    print 'Training network (layers: ' + \
+          ' -> '.join(map(str, layer_sizes)) + ')...'
 
     network = NeuralNetwork(layer_sizes, alpha)
 
@@ -123,7 +123,7 @@ def main():
         dropconnect_chance=0.05
     )
 
-    print('Network trained.')
+    print 'Network trained.'
 
     num_correct = 0
     num_tests = 0
@@ -132,7 +132,7 @@ def main():
         num_tests += 1
         if int(prediction) == y:
             num_correct += 1
-    print(str(num_correct), '/', str(num_tests))
+    print str(num_correct), '/', str(num_tests)
 
     # clear junk
     network.momentum = None
@@ -143,7 +143,7 @@ def main():
     training_x_raw = None
     training_y_raw = None
 
-    print('Loading test data...')
+    print 'Loading test data...'
 
     test_x_raw = []
     test_x = []
@@ -183,7 +183,7 @@ def main():
                     x_array = []
 
 
-    print('Predicted labels and stored as "' + output_file_name + '".')
+    print 'Predicted labels and stored as "' + output_file_name + '".'
 
 if __name__ == '__main__':
     main()

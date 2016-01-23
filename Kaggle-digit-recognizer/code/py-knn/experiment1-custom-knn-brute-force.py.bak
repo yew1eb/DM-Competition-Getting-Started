@@ -19,19 +19,19 @@ def knn(test_row, train, k=5):
     for t in train:
         diffs[idx] = euclid(test_row, t)
         idx = idx + 1
-    print("for loop: %f idx(%d)" % (time.time() - start, idx))
-    return sorted(iter(diffs.items()), key=operator.itemgetter(1))[:k]
+    print "for loop: %f idx(%d)" % (time.time() - start, idx)
+    return sorted(diffs.iteritems(), key=operator.itemgetter(1))[:k]
 
 
 # majority vote
 def majority(knn, labels):
     a = {}
     for idx, distance in knn:
-        if labels[idx] in list(a.keys()):
+        if labels[idx] in a.keys():
             a[labels[idx]] = a[labels[idx]] + 1
         else:
             a[labels[idx]] = 1
-    return sorted(iter(a.items()), key=operator.itemgetter(1), reverse=True)[0][0]
+    return sorted(a.iteritems(), key=operator.itemgetter(1), reverse=True)[0][0]
 
 
 # worker. crawl through test set and predicts number
@@ -43,10 +43,10 @@ def doWork(train, test, labels):
         idx += 1
         start = time.time()
         prediction = majority(knn(test_sample, train, k=100), labels)
-        print("Knn: %f" % (time.time() - start))
+        print "Knn: %f" % (time.time() - start)
         output_file.write(prediction)
         output_file.write("\n")
-        print((float(idx) / size) * 100)
+        print (float(idx) / size) * 100
     output_file.close()
 
 
@@ -55,11 +55,11 @@ def majority_vote(knn, labels):
     knn = [k[0, 0] for k in knn]
     a = {}
     for idx in knn:
-        if labels[idx] in list(a.keys()):
+        if labels[idx] in a.keys():
             a[labels[idx]] = a[labels[idx]] + 1
         else:
             a[labels[idx]] = 1
-    return sorted(iter(a.items()), key=operator.itemgetter(1), reverse=True)[0][0]
+    return sorted(a.iteritems(), key=operator.itemgetter(1), reverse=True)[0][0]
 
 
 def doWorkNumpy(train, test, labels):
@@ -76,8 +76,8 @@ def doWorkNumpy(train, test, labels):
         prediction = majority_vote(knn, labels)
         output_file.write(prediction)
         output_file.write("\n")
-        print("Knn: %f, majority %f" % (time.time() - start, time.time() - s))
-        print("Done: %f" % (float(idx) / size))
+        print "Knn: %f, majority %f" % (time.time() - start, time.time() - s)
+        print "Done: %f" % (float(idx) / size)
     output_file.close()
     output_file = open("done.txt", "w")
     output_file.write("DONE")

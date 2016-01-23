@@ -38,12 +38,12 @@ class NeuralNetwork:
         self.dropconnect_matrices = None
 
         if labels is None:
-            self.labels = list(range(layer_sizes[-1]))
+            self.labels = range(layer_sizes[-1])
         elif len(labels) != layer_sizes[-1]:
             #TODO: throw exception here
-            print('Fucked up because the size of layer does not match the ' \
+            print 'Fucked up because the size of layer does not match the ' \
                   'size of the outputs. (' + \
-                  str(len(labels)) + ' != ' + str(layer_sizes[-1]) + ')')
+                  str(len(labels)) + ' != ' + str(layer_sizes[-1]) + ')'
             exit(1)
         else:
             self.labels = labels
@@ -104,7 +104,7 @@ class NeuralNetwork:
         delta[-1] = np.multiply(A[-1] - output_vector.T, d_sigmoid(Z[-1]))
 
         # note: no error on input layer, we have the output layer
-        for l in reversed(list(range(1, len(self.theta)-1))):
+        for l in reversed(range(1, len(self.theta)-1)):
             theta_t_delta = np.dot(np.multiply(self.theta[l+1],
                                                dropconnect_matrices[l]).T,
                                    delta[l+1])
@@ -163,10 +163,10 @@ class NeuralNetwork:
                     if prediction == test_output:
                         num_correct += 1
                 test_accuracy = float(num_correct) / float(num_tests)
-                print('Test at epoch %s: %s / %s -- Accuracy: %s' % (
+                print 'Test at epoch %s: %s / %s -- Accuracy: %s' % (
                     str(iteration+1), str(num_correct),
                     str(num_tests), str(test_accuracy)
-                ))
+                )
 
                 if test_accuracy >= 1.0 - error_goal:
                     return

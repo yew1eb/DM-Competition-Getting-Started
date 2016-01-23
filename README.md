@@ -7,11 +7,7 @@
 这是一个回归问题，给出一个城市的自行车租借系统的历史租借数据，要求预测自行车租借数量。
 
 ### Bag of Words Meets Bags of Popcorn [url](https://www.kaggle.com/c/word2vec-nlp-tutorial)  
-这是一个文本情感二分类问题。25000的labeled训练样本，只有一个raw text 特征”review“。评价指标为AUC，所以这里提交结果需要用概率，我开始就掉坑里了，结果一直上不来。
-比赛里有教程如何使用word2vec进行二分类，可以作为入门学习材料。我没有使用word embeddinng，直接采用BOW及ngram作为特征训练，效果还凑合，后面其实可以融合embedding特征试试。对于raw text我采用TfidfVectorizer(stop_words=’english’, ngram_range=(1,3), sublinear_tf=True, min_df=2)，并采用卡方检验进行特征选择，经过CV，最终确定特征数为200000。
-单模型我选取了GBRT/NB/LR/linear SVC。GBRT一般对于维度较大比较稀疏效果不是很好，但对于该数据表现不是很差。NB采用MultinomialNB效果也没有想象的那么惊艳。几个模型按效果排序为linear SVC(0.95601)>LR(0.94823)>GBRT(0.94173)>NB(0.93693)，看来线性SVM在文本上还是很强悍的。
-后续我又采用LDA生成主题特征，本来抱着很大期望，现实还是那么骨感，采用上述单模型AUC最好也只有0.93024。既然单独使用主题特征没有提高，那和BOW融合呢？果然work了!后面试验证实特征融合还是linear SVC效果最好，LDA主题定为500，而且不去除停用词效果更好，AUC为0.95998。
-既然没有时间搞单模型了，还有最后一招，多模型融合。这里有一个原则就是模型尽量多样，不一定要求指标最好。最终我选取5组不是很差的多模型结果进行average stacking，AUC为0.96115，63位。最终private LB跌倒了71st，应该融合word enbedding试试，没时间细搞了。
+这是一个文本情感二分类问题。评价指标为AUC。
 
 ### Titanic: Machine Learning from Disaster [url](https://www.kaggle.com/c/titanic)  
 二分类问题，给出0/1即可，评价指标为accuracy。
@@ -60,4 +56,5 @@ Libliear貌似不支持mini-batch,为了省事没办法只好找一台大内存�
 * [Kaggle 机器学习竞赛冠军及优胜者的源代码汇总](http://suanfazu.com/t/kaggle-ji-qi-xue-xi-jing-sai-guan-jun-ji-you-sheng-zhe-de-yuan-dai-ma-hui-zong/230)
 * [Kaggle实战(一) | Nanjunxiao](http://nanjunxiao.github.io/2015/07/30/Kaggle%E5%AE%9E%E6%88%98%E4%B8%80/)  
 * [Kaggle实战(二) | Nanjunxiao](http://nanjunxiao.github.io/2015/07/31/Kaggle%E5%AE%9E%E6%88%98%E4%BA%8C/)  
-* [Kaggle Competitions: How and where to begin?](http://www.analyticsvidhya.com/blog/2015/06/start-journey-kaggle/)  
+* [Kaggle Competitions: How and where to begin?](http://www.analyticsvidhya.com/blog/2015/06/start-journey-kaggle/)
+* [Hacker's Guide to Machine Learning and Predictive Modelling](https://github.com/apeeyush/machine-learning)  

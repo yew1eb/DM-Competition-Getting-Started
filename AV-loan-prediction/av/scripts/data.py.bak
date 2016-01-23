@@ -44,8 +44,8 @@ def get_dummy_variable_data(train_df, test_df, non_obj_cols, obj_cols):
     obj_test_df = obj_test_df.fillna('NA')
 
     #transform the categorical to dict
-    dict_train_data = list(obj_train_df.T.to_dict().values())
-    dict_test_data = list(obj_test_df.T.to_dict().values())
+    dict_train_data = obj_train_df.T.to_dict().values()
+    dict_test_data = obj_test_df.T.to_dict().values()
 
     vectorizer = DictVectorizer(sparse=False)
     vec_train_data = vectorizer.fit_transform(dict_train_data)

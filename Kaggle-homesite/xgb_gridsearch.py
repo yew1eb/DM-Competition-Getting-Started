@@ -54,7 +54,7 @@ train_eval = train[train['min_ANNmuon'] > 0.4]
 print("Eliminate SPDhits, which makes the agreement check fail")
 filter_out = ['id', 'min_ANNmuon', 'production', 'mass', 'signal','SPDhits','IP']
 features = list(f for f in train.columns if f not in filter_out)
-print("features:",features)
+print(("features:",features))
 
 print("Train a XGBoost model")
 
@@ -78,9 +78,9 @@ clf = GridSearchCV(xgb_model, parameters, n_jobs=4,
 clf.fit(train[features], train["signal"])
 
 best_parameters, score, _ = max(clf.grid_scores_, key=lambda x: x[1])
-print('Raw AUC score:', score)
+print(('Raw AUC score:', score))
 for param_name in sorted(best_parameters.keys()):
-    print("%s: %r" % (param_name, best_parameters[param_name]))
+    print(("%s: %r" % (param_name, best_parameters[param_name])))
 
 test_agreement_ = True
 if test_agreement_:
@@ -91,17 +91,17 @@ if test_agreement_:
             agreement_probs[check_agreement['signal'].values == 1],
             check_agreement[check_agreement['signal'] == 0]['weight'].values,
             check_agreement[check_agreement['signal'] == 1]['weight'].values)
-    print ('KS metric', ks, ks < 0.09)
+    print(('KS metric', ks, ks < 0.09))
 
     correlation_probs = clf.predict_proba(check_correlation[features])[:,1]
     print ('Checking correlation...')
     cvm = compute_cvm(correlation_probs, check_correlation['mass'])
-    print ('CvM metric', cvm, cvm < 0.002)
+    print(('CvM metric', cvm, cvm < 0.002))
 
     train_eval_probs = clf.predict_proba(train_eval[features])[:,1]
     print ('Calculating AUC...')
     AUC = roc_auc_truncated(train_eval['signal'], train_eval_probs)
-    print ('AUC', AUC)
+    print(('AUC', AUC))
 '''
 Sample output can be:
 

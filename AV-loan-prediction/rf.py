@@ -69,8 +69,8 @@ for i in indices:
 def feature_importances():
     plt.figure()
     plt.title('Feature Importances')
-    plt.barh(range(len(indices)), importances[indices], color='b', align='center')
-    plt.yticks(range(len(indices)),ind)
+    plt.barh(list(range(len(indices))), importances[indices], color='b', align='center')
+    plt.yticks(list(range(len(indices))),ind)
     plt.xlabel('Relative Importance')
     plt.show()
 
@@ -87,6 +87,6 @@ print(roc_auc)
 
 status = rf.predict_proba(x_test)
 pred = np.where(status[:,0] > 0.5, 'Y', 'N')
-print(pd.value_counts(pred))
+print((pd.value_counts(pred)))
 result = pd.DataFrame({"Loan_ID":test_uid, "Loan_Status":pred}, columns=['Loan_ID','Loan_Status'])
 result.to_csv('result/rf_'+str(time.time())[-4:]+'.csv', index=False)

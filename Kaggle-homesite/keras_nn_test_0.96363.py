@@ -32,10 +32,10 @@ def save2model(submission,file_name,y_pre):
     assert len(y_pre)==len(submission)
     submission['QuoteConversion_Flag']=y_pre
     submission.to_csv(file_name,index=False)
-    print("saved files %s" % file_name)
+    print(("saved files %s" % file_name))
 
 def generateFileName(model,params):
-     file_name="_".join([(key+"_"+ str(val))for key,val in params.items()])
+     file_name="_".join([(key+"_"+ str(val))for key,val in list(params.items())])
      return model+"_"+file_name+".csv"
 
 def load_data():
@@ -109,10 +109,10 @@ X_test, submission = datasets[1]
 X_valid, y_valid = datasets[2]
 
 nb_classes = y_train.shape[1]
-print(nb_classes, 'classes')
+print((nb_classes, 'classes'))
 
 dims = X_train.shape[1]
-print(dims, 'dims')
+print((dims, 'dims'))
 
 model = Sequential()
 
@@ -177,7 +177,7 @@ if need_validataion:
         y_pre = model.predict_proba(X_valid)
         scores = roc_auc_score(y_valid,y_pre)
         auc_scores.append(scores)
-        print(i,scores)
+        print((i,scores))
         if scores>best_score:
             best_score=scores
             best_model=model

@@ -21,16 +21,16 @@ test = pd.read_csv(data_dir + "Testing.csv")
 # explore data structure
 
 # Number of observations and number of features
-print "Training data: " + str(train.shape[0]) + " rows, " + str(train.shape[1]) + " columns"  
-print "Testing data: " + str(test.shape[0]) + " rows, " + str(test.shape[1]) + " columns"  
+print("Training data: " + str(train.shape[0]) + " rows, " + str(train.shape[1]) + " columns")  
+print("Testing data: " + str(test.shape[0]) + " rows, " + str(test.shape[1]) + " columns")  
 
 # Type of features, missing values
 train.info()
 test.info()
 
 # A quick look at the first 5 rows
-print train.head(n=5)
-print train.tail(n=5)
+print(train.head(n=5))
+print(train.tail(n=5))
 
 # Change the column names to something more manageable
 colNames = train.columns.values.tolist()
@@ -139,12 +139,12 @@ for train_index, test_index in kf:
     score = metrics.log_loss(TestLabels, model.predict_proba(TestFeats))
 
 # To make sure we're not overfitting
-print("Average CV Training Log loss: %.2f" % np.mean(score_train))
-print("Average CV Testing Log loss: %.2f" % np.mean(score_test))
-print("Testing Log loss: %.2f" % score)
+print(("Average CV Training Log loss: %.2f" % np.mean(score_train)))
+print(("Average CV Testing Log loss: %.2f" % np.mean(score_test)))
+print(("Testing Log loss: %.2f" % score))
 
 
-print metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0])
+print(metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0]))
 
         
 ## ----------------------------------------------------------------------------
@@ -165,11 +165,11 @@ for train_index, test_index in kf:
     score = metrics.log_loss(TestLabels, model.predict_proba(TestFeats))
 
 # To make sure we're not overfitting
-print("Average CV Training Log loss: %.2f" % np.mean(score_train))
-print("Average CV Testing Log loss: %.2f" % np.mean(score_test))
-print("Testing Log loss: %.2f" % score)
+print(("Average CV Training Log loss: %.2f" % np.mean(score_train)))
+print(("Average CV Testing Log loss: %.2f" % np.mean(score_test)))
+print(("Testing Log loss: %.2f" % score))
 
-print metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0])
+print(metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0]))
 
 ## ----------------------------------------------------------------------------
 # 3. Naive Bayes
@@ -190,11 +190,11 @@ for train_index, test_index in kf:
     score = metrics.log_loss(TestLabels, model.predict_proba(TestFeats))
 
 # To make sure we're not overfitting
-print("Average CV Training Log loss: %.2f" % np.mean(score_train))
-print("Average CV Testing Log loss: %.2f" % np.mean(score_test))
-print("Testing Log loss: %.2f" % score)
+print(("Average CV Training Log loss: %.2f" % np.mean(score_train)))
+print(("Average CV Testing Log loss: %.2f" % np.mean(score_test)))
+print(("Testing Log loss: %.2f" % score))
 
-print metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0])
+print(metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0]))
 
 ## ----------------------------------------------------------------------------            
 # 4. Classification tree
@@ -214,11 +214,11 @@ for train_index, test_index in kf:
     score = metrics.log_loss(TestLabels, model.predict_proba(TestFeats))
 
 # To make sure we're not overfitting
-print("Average CV Training Log loss: %.2f" % np.mean(score_train))
-print("Average CV Testing Log loss: %.2f" % np.mean(score_test))
-print("Testing Log loss: %.2f" % score)
+print(("Average CV Training Log loss: %.2f" % np.mean(score_train)))
+print(("Average CV Testing Log loss: %.2f" % np.mean(score_test)))
+print(("Testing Log loss: %.2f" % score))
 
-print metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0])
+print(metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0]))
 
 tree.export_graphviz(model,out_file='tree_tall.dot')   
 
@@ -237,11 +237,11 @@ for train_index, test_index in kf:
     score = metrics.log_loss(TestLabels, model.predict_proba(TestFeats))
 
 # To make sure we're not overfitting
-print("Average CV Training Log loss: %.2f" % np.mean(score_train))
-print("Average CV Testing Log loss: %.2f" % np.mean(score_test))
-print("Testing Log loss: %.2f" % score)
+print(("Average CV Training Log loss: %.2f" % np.mean(score_train)))
+print(("Average CV Testing Log loss: %.2f" % np.mean(score_test)))
+print(("Testing Log loss: %.2f" % score))
 
-print metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0])
+print(metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0]))
 
 tree.export_graphviz(model,out_file='tree_stump.dot')   
 
@@ -263,11 +263,11 @@ for train_index, test_index in kf:
     score = metrics.log_loss(TestLabels, model.predict_proba(TestFeats))
 
 # To make sure we're not overfitting
-print("Average CV Training Log loss: %.2f" % np.mean(score_train))
-print("Average CV Testing Log loss: %.2f" % np.mean(score_test))
-print("Testing Log loss: %.2f" % score)
+print(("Average CV Training Log loss: %.2f" % np.mean(score_train)))
+print(("Average CV Testing Log loss: %.2f" % np.mean(score_test)))
+print(("Testing Log loss: %.2f" % score))
 
-print metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0])
+print(metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0]))
            
 ## ----------------------------------------------------------------------------
 # 6. Random Forest
@@ -287,11 +287,11 @@ for train_index, test_index in kf:
     score = metrics.log_loss(TestLabels, model.predict_proba(TestFeats))
 
 # To make sure we're not overfitting
-print("Average CV Training Log loss: %.2f" % np.mean(score_train))
-print("Average CV Testing Log loss: %.2f" % np.mean(score_test))
-print("Testing Log loss: %.2f" % score)
+print(("Average CV Training Log loss: %.2f" % np.mean(score_train)))
+print(("Average CV Testing Log loss: %.2f" % np.mean(score_test)))
+print(("Testing Log loss: %.2f" % score))
 
-print metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0])
+print(metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0]))
 
 ## ----------------------------------------------------------------------------
 # 7. Gradient Boosting Machine
@@ -311,11 +311,11 @@ for train_index, test_index in kf:
     score = metrics.log_loss(TestLabels, model.predict_proba(TestFeats))
 
 # To make sure we're not overfitting
-print("Average CV Training Log loss: %.2f" % np.mean(score_train))
-print("Average CV Testing Log loss: %.2f" % np.mean(score_test))
-print("Testing Log loss: %.2f" % score)
+print(("Average CV Training Log loss: %.2f" % np.mean(score_train)))
+print(("Average CV Testing Log loss: %.2f" % np.mean(score_test)))
+print(("Testing Log loss: %.2f" % score))
 
-print metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0])
+print(metrics.confusion_matrix(CVTestLabels,model.predict(CVTestFeats),labels = [1,0]))
 
 ## ----------------------------------------------------------------------------
 # Ensemble: mean probability
@@ -363,4 +363,4 @@ X_train_1 = np.mean(X_train_1, axis = 0)
 
 X_train = np.vstack((X_train_0,X_train_1)).T
 
-print("Ensemble Training Log loss: %.2f" % metrics.log_loss(labels, X_train))
+print(("Ensemble Training Log loss: %.2f" % metrics.log_loss(labels, X_train)))

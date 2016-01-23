@@ -25,7 +25,7 @@ def get_mask(dataset, train_size=0.7):
     Returns the boolean mask which can be used to split the dataset
     """
 
-    loantrain, loantest = train_test_split(range(dataset.shape[0]), train_size=train_size)
+    loantrain, loantest = train_test_split(xrange(dataset.shape[0]), train_size=train_size)
     loanmask = np.ones(dataset.shape[0], dtype='int')
     loanmask[loantrain] = 1
     loanmask[loantest] = 0
@@ -52,8 +52,8 @@ def vectorizer(train_df, test_df):
     train_df_copy = train_df.copy()
     test_df_copy = test_df.copy()
 
-    train = list(train_df_copy.T.to_dict().values())
-    test = list(test_df_copy.T.to_dict().values())
+    train = train_df_copy.T.to_dict().values()
+    test = test_df_copy.T.to_dict().values()
 
     vec = DictVectorizer()
     train = vec.fit_transform(train)
