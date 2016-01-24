@@ -27,6 +27,8 @@ Word2vec 使用的是 Distributed representation 的词向量表示方式。Dist
 * [文本深度表示模型Word2Vec](http://wei-li.cnblogs.com/p/word2vec.html)    
 * [深度学习word2vec笔记之基础篇](http://blog.csdn.net/mytestmy/article/details/26961315)  
 * [深度学习word2vec笔记之算法篇](http://blog.csdn.net/mytestmy/article/details/26969149)  
+* [基于Kaggle数据的词袋模型文本分类教程](http://www.csdn.net/article/1970-01-01/2825782)  
+* [情感分析的新方法——基于Word2Vec/Doc2Vec/Python](http://datartisan.com/article/detail/48.html)  
 http://nbviewer.jupyter.org/github/MatthieuBizien/Bag-popcorn/blob/master/Kaggle-Word2Vec.ipynb
 ***************
 
