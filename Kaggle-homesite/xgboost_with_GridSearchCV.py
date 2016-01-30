@@ -56,8 +56,8 @@ xgb_model = xgb.XGBClassifier()
 #tuning min_child_weight subsample colsample_bytree can have
 #much fun of fighting against overfit
 #n_estimators is how many round of boosting
-#finally, ensemble xgboost with multiple seeds may reduce variance
-parameters = {'nthread':[2], #when use hyperthread, xgboost may become slower
+#finally, ensemble DC-loan-rp with multiple seeds may reduce variance
+parameters = {'nthread':[2], #when use hyperthread, DC-loan-rp may become slower
               'objective':['binary:logistic'],
               'learning_rate': [0.05], #so called `eta` value
               'max_depth': [7],

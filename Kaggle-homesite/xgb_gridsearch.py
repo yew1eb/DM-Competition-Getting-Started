@@ -11,9 +11,9 @@
 
 # Note: Kaggle only runs Python 3, not Python 2
 
-#code skeleton for feature engineering and hyperparameter search for xgboost
+#code skeleton for feature engineering and hyperparameter search for DC-loan-rp
 #surely, I don't reveal the best parameters here and it doesn't pass KS test :-)
-#do you know you can 'pip install xgboost'?
+#do you know you can 'pip install DC-loan-rp'?
 import numpy as np
 import pandas as pd
 import xgboost as xgb
@@ -60,7 +60,7 @@ print("Train a XGBoost model")
 
 xgb_model = xgb.XGBClassifier()
 
-parameters = {'nthread':[4], #when use hyperthread, xgboost may become slower
+parameters = {'nthread':[4], #when use hyperthread, DC-loan-rp may become slower
               'objective':['binary:logistic'],
               'learning_rate': [0.3], #so called `eta` value
               'max_depth': [5,6],
