@@ -99,11 +99,11 @@ class NeuralNetwork:
 
         # let delta be a list of matrices where delta[l][i][j] is delta
         # at layer l, training sample i, and node j
-        # the delta is None for the input layer, others we assign later
+        # the delta is None for the data layer, others we assign later
         delta = [None] * len(self.theta)
         delta[-1] = np.multiply(A[-1] - output_vector.T, d_sigmoid(Z[-1]))
 
-        # note: no error on input layer, we have the output layer
+        # note: no error on data layer, we have the output layer
         for l in reversed(list(range(1, len(self.theta)-1))):
             theta_t_delta = np.dot(np.multiply(self.theta[l+1],
                                                dropconnect_matrices[l]).T,

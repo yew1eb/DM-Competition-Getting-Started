@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-base_path = './input/'
+base_path = './data/'
 train = pd.read_csv(base_path+'train.csv')
 
 # 初步观察数据

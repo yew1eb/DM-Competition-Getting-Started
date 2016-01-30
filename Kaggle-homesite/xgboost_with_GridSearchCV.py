@@ -7,8 +7,8 @@ from sklearn.cross_validation import train_test_split
 from sklearn.cross_validation import *
 from sklearn.grid_search import GridSearchCV
 
-train = pd.read_csv("../input/train.csv")
-test = pd.read_csv("../input/test.csv")
+train = pd.read_csv("../data/train.csv")
+test = pd.read_csv("../data/test.csv")
 
 
 train = train.drop('QuoteNumber', axis=1)
@@ -84,6 +84,6 @@ for param_name in sorted(best_parameters.keys()):
 
 test_probs = clf.predict_proba(test[features])[:,1]
 
-sample = pd.read_csv('../input/sample_submission.csv')
+sample = pd.read_csv('../data/sample_submission.csv')
 sample.QuoteConversion_Flag = test_probs
 sample.to_csv("xgboost_best_parameter_submission.csv", index=False)

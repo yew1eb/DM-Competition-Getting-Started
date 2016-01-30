@@ -55,7 +55,7 @@ if __name__ == '__main__':
 
     # fit_transform() does two functions: First, it fits the model
     # and learns the vocabulary; second, it transforms our training data
-    # into feature vectors. The input to fit_transform should be a list of
+    # into feature vectors. The data to fit_transform should be a list of
     # strings.
     train_data_features = vectorizer.fit_transform(clean_train_reviews)
 

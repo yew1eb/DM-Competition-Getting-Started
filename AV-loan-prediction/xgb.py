@@ -60,7 +60,7 @@ def using_xgb(train_x, train_y, test_x, test_uid):
         #'colsample_bytree': 0.7,
         'nthread': 2
     }
-    watchlist = [(xgb_val, 'eval'), (xgb_train, 'train')]
+    watchlist = [(xgb_val, 'val'), (xgb_train, 'train')]
     num_round = 10000
     bst = xgb.train(params, xgb_train, num_boost_round=num_round, evals=watchlist)
     scores = bst.predict(xgb_test, ntree_limit=bst.best_ntree_limit)

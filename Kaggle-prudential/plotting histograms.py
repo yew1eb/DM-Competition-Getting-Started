@@ -144,7 +144,7 @@ def create_pdf(fname, plot_type, data, items):
                 print ("saved fig")
 
 if __name__ == '__main__':
-    train = pd.read_csv("../input/train.csv")
+    train = pd.read_csv("../data/train.csv")
     train["is_train"] = True
 
     data = train

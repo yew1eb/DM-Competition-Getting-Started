@@ -8,7 +8,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 
-titanic = pd.read_csv("./input/train.csv", dtype={"Age": np.float64}, )
+titanic = pd.read_csv("./data/train.csv", dtype={"Age": np.float64}, )
 
 # Preprocessing Data
 # ==================
@@ -78,7 +78,7 @@ print(('Accuracy of Random Forest on the training set is ' + str(scores.mean()))
 
 # Test Set
 # ========
-titanic_test = pd.read_csv("./input/test.csv", dtype={"Age": np.float64}, )
+titanic_test = pd.read_csv("./data/test.csv", dtype={"Age": np.float64}, )
 
 titanic_test["Age"] = titanic_test["Age"].fillna(titanic["Age"].median())
 

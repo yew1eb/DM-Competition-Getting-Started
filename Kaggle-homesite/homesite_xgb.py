@@ -7,8 +7,8 @@ from sklearn.cross_validation import train_test_split
 
 random_seed = 23145
 
-train = pd.read_csv("./input/train.csv")
-test = pd.read_csv("./input/test.csv")
+train = pd.read_csv("./data/train.csv")
+test = pd.read_csv("./data/test.csv")
 
 
 train = train.drop('QuoteNumber', axis=1)
@@ -96,6 +96,6 @@ bst = xgb.train(params, xgb_train, num_boost_round=num_round, evals=watchlist)
 preds= bst.predict(xgb_test)
 
 #print to CSV
-sample = pd.read_csv('./input/sample_submission.csv')
+sample = pd.read_csv('./data/sample_submission.csv')
 sample.QuoteConversion_Flag = preds
 sample.to_csv('result_xgb_python.csv', index=False)

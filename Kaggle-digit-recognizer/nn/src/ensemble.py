@@ -28,14 +28,14 @@ with open(BASE_PATH+'ensemble_benchmark.csv', 'wb') as output_file:
     w.writerow(['ImageId','Label'])
 
     for ex_count in range(28000):
-        current_predictions = [] # list of digits given by several input files for the same image
+        current_predictions = [] # list of digits given by several data files for the same image
         prediction_counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] # number of times each label appears
 
-        # get the label column for the next line for each input file
+        # get the label column for the next line for each data file
         for input_file in input_files:
             current_predictions.append(input_file.readline().split(',')[1])
 
-        # add one to the counter at the index of each label from the input files
+        # add one to the counter at the index of each label from the data files
         for prediction in current_predictions:
             prediction_counts[int(prediction)] += 1
 

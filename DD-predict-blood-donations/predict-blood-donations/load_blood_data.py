@@ -61,7 +61,7 @@ def load_blood_data(train=True, SEED=97, scale  = False,
     
     # ------------- read the file -------------
     
-    file_name = '../input/train.csv' if train else '../input/test.csv'
+    file_name = '../data/train.csv' if train else '../data/test.csv'
     data = pd.read_csv(file_name)
     
     

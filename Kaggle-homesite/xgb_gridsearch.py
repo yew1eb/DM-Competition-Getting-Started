@@ -20,7 +20,7 @@ import xgboost as xgb
 import sys
 
 #import evaluation
-exec(open("../input/evaluation.py").read())
+exec(open("../data/evaluation.py").read())
 
 from sklearn.cross_validation import *
 from sklearn.grid_search import GridSearchCV
@@ -37,16 +37,16 @@ def add_features(df):
     return df
 
 print("Load the training/test data using pandas")
-train = pd.read_csv("../input/training.csv")
-test = pd.read_csv("../input/test.csv")
+train = pd.read_csv("../data/training.csv")
+test = pd.read_csv("../data/test.csv")
 
 print("Adding features to both training and testing")
 train = add_features(train)
 test = add_features(test)
 
 print("Loading check agreement for KS test evaluation")
-check_agreement = pd.read_csv('../input/check_agreement.csv')
-check_correlation = pd.read_csv('../input/check_correlation.csv')
+check_agreement = pd.read_csv('../data/check_agreement.csv')
+check_correlation = pd.read_csv('../data/check_correlation.csv')
 check_agreement = add_features(check_agreement)
 check_correlation = add_features(check_correlation)
 train_eval = train[train['min_ANNmuon'] > 0.4]

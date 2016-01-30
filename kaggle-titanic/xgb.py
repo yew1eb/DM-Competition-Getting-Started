@@ -9,8 +9,8 @@ from sklearn.preprocessing import LabelEncoder
 import numpy as np
 
 # Load the data
-train_df = pd.read_csv('./input/train.csv', header=0)
-test_df = pd.read_csv('./input/test.csv', header=0)
+train_df = pd.read_csv('./data/train.csv', header=0)
+test_df = pd.read_csv('./data/test.csv', header=0)
 
 # We'll impute missing values using the median for numeric columns and the most
 # common value for string columns.
