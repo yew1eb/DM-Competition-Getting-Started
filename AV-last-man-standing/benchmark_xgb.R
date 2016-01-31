@@ -8,10 +8,10 @@ library(readr)
 library(xgboost)
 
 #Set the working directory. 
-setwd("~/Documents/Kaggle/AnalyticsVidhya/last_man_standing/")
+setwd("~/PyWS/DM-Competition-Getting-Started/AV-last-man-standing/")
 #Read the train, test and sample submission datasets
-train <- read_csv("data/Train_Fyxd0t8.csv")
-test <- read_csv("data/Test_C1XBIYq.csv")
+train <- read_csv("data/train.csv")
+test <- read_csv("data/test.csv")
 #samplesub <- read_csv("~/Downloads/Sample_Submission_Psj3sjG.csv")
 
 #samplesub's first column is test's ID column

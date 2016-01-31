@@ -31,7 +31,7 @@ train_x = train_x.fillna(value = -999)
 test_x = test_x.fillna(value = -999)
 
 # Random Forest
-rf = RandomForestClassifier(n_estimators=100, n_jobs=-1, oob_score = True, max_features = "auto",random_state=10, min_samples_split=2, min_samples_leaf=2)
+rf = RandomForestClassifier(n_estimators=1000, n_jobs=-1, oob_score = True, max_features = "auto",random_state=10, min_samples_split=2, min_samples_leaf=2)
 rf.fit(train_x, train_y)
 print(('Training accuracy:', rf.oob_score_))
 

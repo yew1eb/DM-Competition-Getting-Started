@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
 import pandas as pd
@@ -30,37 +30,38 @@ test  = pd.read_csv("data/test.csv")
 test_uid = test['ID']
 test_x  = test.drop(['ID'], axis=1)
 
-print("Filled Missing Values")
 train_x = train_x.fillna(value = -1)
 test_x = test_x.fillna(value = -1)
 
-xgb_train = xgb.DMatrix(train_x, label= train_y)
-xgb_test  = xgb.DMatrix(test_x)
+clf = xgb.XGBClassifier(
+    max_depth=6,
+    learning_rate=0.05,
+    n_estimators=300,
+    objective="multi:softmax",
+    gamma=0,
+    min_child_weight=1,
+    max_delta_step=0,
+    subsample=1,
+    colsample_bytree=1,
+    scale_pos_weight=1,
+    seed=0
+)
 
-num_round = 2000
-params = {
-    'booster':'gbtree',
-    'objective': 'multi:softmax',
-    'num_class':3, # 类数，与 multisoftmax 并用
-    'eval_metric': 'merror',
-    'early_stopping_rounds': 120,
-    'gamma':0.05, # 在树的叶子节点下一个分区的最小损失，越大算法模型越保守
-    'lambda': 0.05,# L2 正则项权重
-    'min_child_weight': 50, # 节点的最少特征数
-    'subsample': 0.7, # 采样训练数据，设置为0.5，随机选择一般的数据实例 (0:1]
-    'max_depth':6, # 构建树的深度
-    'eta': 0.05,
-    'seed': 88888,
-    'colsample_bytree': 0.75, # 构建树树时的采样比率 (0:1]
-    'scale_pos_weight':0.5,
+param_grid = {
+    'min_child_weight': [48, 49,50,51,52,53, 55, 80],
+    #'subsample': [0.7, 0.8],
+    #'colsample_bytree': [0.7, 0.8],
+    #'n_estimators': [100, 250, 500, 1000],
+    #'gamma':[0.05, 0.1, 0.5],
 }
 
-watchlist = [(xgb_train, 'train')]
+print("Starting GridSearchCV...")
+clf = GridSearchCV(clf, param_grid)
 
-bst = xgb.train(params, xgb_train, num_boost_round=num_round, evals=watchlist)
-#bst.save_model('./model/xgb.model') # 用于存储训练出的模型
+clf.fit(train_x, train_y)
 
-pred = bst.predict(xgb_test, ntree_limit=bst.best_ntree_limit).astype('int')
-
-result = pd.DataFrame({"ID":test_uid, "Crop_Damage":pred}, columns=['ID','Crop_Damage'])
-result.to_csv('submission/xgb_MultiSoftmax.csv', index=False)
+#trust your CV!
+best_parameters, score, _ = max(clf.grid_scores_, key=lambda x: x[1])
+print('Raw AUC score:', score)
+for param_name in sorted(best_parameters.keys()):
+    print("%s: %r" % (param_name, best_parameters[param_name]))
