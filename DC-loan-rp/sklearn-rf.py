@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 
 '''
-@filename: rf.py.py
+@filename: sklearn-rf.py.py
 @author: yew1eb
 @site: http://blog.yew1eb.net
 @contact: yew1eb@gmail.com

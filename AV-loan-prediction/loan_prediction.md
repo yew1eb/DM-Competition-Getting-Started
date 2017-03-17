@@ -11,7 +11,7 @@ Income, Loan Amount, Credit History and others. To automate this process, they h
 the customers segments, those are eligible for loan amount so that they can specifically target these customers.
  Here they have provided a partial data set.
 
-## 数据集
+## Data Set
 Variable  Description  
 Loan_ID	Unique Loan ID  
 Gender	Male/ Female  

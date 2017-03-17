@@ -1,17 +1,14 @@
 # Data Mining Competition Getting Started
-
 ***************
-## Data Castle
-### 微额借款用户人品预测大赛 [url](http://pkbigdata.com/common/competition/148.html)
-
 ## Analytics Vidhya
 ### AV Loan Prediction [url](http://datahack.analyticsvidhya.com/contest/practice-problem-loan-prediction#)  
-  仅作为练习的小问题, 借贷预测，二分类问题  
+  仅作为练习的小问题, 根据用户的特征预测是否发放住房贷款，二分类问题  
   总11个特征(Gender,Married,Dependents,Education,Self_Employed,ApplicantIncome,CoapplicantIncome,LoanAmount,Loan_Amount_Term,Credit_History,Property_Area)
   ，Loan_ID是用户ID，Loan_Status是需要预测的，特征包含数值类型和分类类型
 
-## DrivenData
-### DD-Predict-Blood-Donations [url](http://www.drivendata.org/competitions/2/page/7/) | [Data Set Description](https://archive.ics.uci.edu/ml/datasets/Blood+Transfusion+Service+Center)
+## Data Castle
+### 微额借款用户人品预测大赛 [url](http://pkbigdata.com/common/competition/148.html)
+   同上，区别在与这个的特征比较多
 
 ## Kaggle
 ### Digit Recognizer [url](https://www.kaggle.com/c/digit-recognizer)
@@ -20,7 +17,6 @@
 二分类问题，给出0/1即可，评价指标为accuracy。
 
 ### Homesite Quote Conversion [url](https://www.kaggle.com/c/homesite-quote-conversion)
-###
 
 ### San Francisco Crime Classification [url](https://www.kaggle.com/c/sf-crime)
 

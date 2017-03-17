@@ -14,7 +14,7 @@ class KaggleWord2VecUtility(object):
     @staticmethod
     def review_to_wordlist( review, remove_stopwords=False ):
         # Function to convert a document to a sequence of Kaggle_bag_of_words,
-        # optionally removing stop Kaggle_bag_of_words.  Returns a list of Kaggle_bag_of_words.
+        # optionally removing stop Kaggle-bag-of-words.  Returns a list of Kaggle-bag-of-words.
         #
         # 1. Remove HTML
         review_text = BeautifulSoup(review, "lxml").get_text()

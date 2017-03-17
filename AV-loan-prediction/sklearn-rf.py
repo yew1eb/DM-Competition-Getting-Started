@@ -12,8 +12,6 @@ print(('Number of training examples {0} '.format(train.shape[0])))
 print((train.Loan_Status.value_counts()))
 print(('Number of test examples {0} '.format(test.shape[0])))
 
-#print(train.isnull().sum())
-
 
 cat_vbl = {'Gender','Married','Dependents','Self_Employed','Property_Area'}
 num_vbl = {'LoanAmount','Loan_Amount_Term','Credit_History'}
@@ -23,8 +21,6 @@ for var in num_vbl:
     test[var] = test[var].fillna(value = test[var].mean())
 train['Credibility'] = train['ApplicantIncome'] / train['LoanAmount']
 test['Credibility'] = test['ApplicantIncome'] / test['LoanAmount']
-
-
 
 print ("Starting Label Encode")
 for var in cat_vbl:
@@ -66,4 +62,4 @@ rec= rf.predict(x_test)
 
 print ("Prediction Completed")
 test['Loan_Status'] = rec
-test.to_csv('result/rf.csv',columns=['Loan_ID','Loan_Status'],index=False)
+test.to_csv('result_sklearn_rf.csv',columns=['Loan_ID','Loan_Status'],index=False)
